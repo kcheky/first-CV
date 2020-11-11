@@ -1,0 +1,225 @@
+:root {
+    --color-background-main: rgba(243, 159, 4, 0.89);
+    --color-background-second: rgb(242, 238, 178);
+    --color-border: rgba(128, 122, 122, 0.904);
+    --color-font-main: rgb(44, 19, 1);
+    --color-font-second: rgba(231, 15, 15, 0.925); 
+    --text-shadow-main: -3px 3px 3px var(--color-font-main),
+                    -3px -3px 3px var(--color-font-main), 
+                    3px -3px 3px var(--color-font-main), 
+                    3px 3px 3px var(--color-font-main);
+    --text-shadow-second: -1px 1px 5px var(--color-font-second),
+                    -1px -1px 5px var(--color-font-second), 
+                    1px -1px 5px var(--color-font-second), 
+                    1px 1px 5px var(--color-font-second);
+    --text-shadow-third:
+                    -1px 1px 5px var(--color-background-second),
+                    -1px -1px 5px var(--color-background-second), 
+                    1px -1px 5px var(--color-background-second), 
+                    1px 1px 5px var(--color-background-second);
+    --padding-side-main: 32px;
+    --padding-side-second: calc(var(--padding-side-main) / 2);
+    --padding-vertical: 60px;
+    --font-main: 'Poppins', sans-serif; 
+    --animation: .5s ease-out;
+}
+
+body {
+    color: var(--color-font-main);
+    display: flex;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-main);
+}
+
+hr {
+    border: var(--color-border) solid 1px;
+}
+
+section {
+    margin-bottom: var(--padding-side-main);
+}
+
+a {
+    color: var(--color-font-main);
+}
+
+h1 {
+    margin-top: 0px;
+}
+
+nav {
+    position: fixed; 
+    top: 0;
+    background-color: var(--color-font-main);
+    width: 100%;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    z-index: 2147483647;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navigation li a {
+    color:  var(--color-background-main);
+}
+
+.navigation li a::after {
+    content: " 🌿"
+}
+
+.navigation li a::before {
+    content: "🌿 ";
+}
+
+.mobile-navigation {
+    margin: 8px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: none;
+}
+
+.mobile-navigation a {
+    color: var(--color-background-main);
+}
+
+.personal-info {
+    background-color: var(--color-background-main);
+    width: 30%;
+    min-width: 280px;
+    height: auto;
+    padding-left: var(--padding-side-main);
+    padding-right: var(--padding-side-second);
+    box-sizing: border-box;
+    font-family: var(--font-main);
+    box-sizing: border-box;
+}
+
+.experience-info {
+    background-color: var(--color-background-second);
+    width: 70%;
+    height: auto;
+    padding-left: var(--padding-side-second);
+    padding-right: var(--padding-side-main);
+    box-sizing: border-box;
+}
+
+.page-padding {
+    padding-top: var(--padding-vertical);
+    padding-bottom: var(--padding-vertical);
+}
+
+.first-name {
+    color: var(--color-font-main);
+    transition: text-shadow var(--animation);
+}
+
+.first-name:hover {
+    text-shadow: var(--text-shadow-third);
+}
+
+.second-name {
+    color: var(--color-font-second);
+    transition: text-shadow var(--animation);
+}
+
+.second-name:hover {
+    text-shadow: var(--text-shadow-main);
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.bold-text {
+    font-weight: 900;
+}
+
+.contacts-content-block {
+    margin-bottom: 24px;
+}
+
+.photo {
+    width: calc(100% + var(--padding-side-main) + var(--padding-side-second));
+    transform: translateX(calc(-1 * var(--padding-side-main)));
+    margin-bottom: 32px;
+    filter: sepia(30%);
+    transition: filter var(--animation);
+}
+.photo:hover {
+    filter: sepia(0%);
+}
+
+.two-column-list {
+    column-count: 2;
+}
+
+.experience-list {
+    margin: 0px 0px var(--padding-side-second) 0px;
+}
+
+.contacts-icon {
+    position: fixed; 
+    right: 0;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-50%);
+}
+
+.material-icons {
+    margin: 4px;
+    fill: var(--color-font-main);
+    transition: color var(--animation), fill var(--animation);
+}
+
+.material-icons:hover {
+    fill: var(--color-font-second);
+    color: var(--color-font-second);
+}
+
+@media screen and (max-width: 660px) {
+    body {
+        flex-direction: column;
+    }
+
+    .personal-info {
+        width: 100%;
+        padding-right: var(--padding-side-main);
+    }
+
+    .experience-info {
+        width: 100%;
+        padding-left: var(--padding-side-main);
+    }
+
+    .photo {
+        width: calc(100% + calc(2 * var(--padding-side-main)));
+    }
+
+    .mobile-navigation {
+        display: flex;
+    }
+
+    .navigation {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .navigation li a {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .navigation li a {
+        font-size: 10px;
+    }
+}       
