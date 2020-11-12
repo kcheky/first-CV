@@ -33,6 +33,10 @@ body {
     font-family: var(--font-main);
 }
 
+header {
+    z-index: 10;
+}
+
 hr {
     border: var(--color-border) solid 1px;
 }
@@ -63,6 +67,7 @@ nav {
     z-index: 2147483647;
     padding: 0;
     list-style-type: none;
+    margin: 8px 0;
 }
 
 .navigation li a {
@@ -86,6 +91,7 @@ nav {
 
 .mobile-navigation a {
     color: var(--color-background-main);
+    margin: 0 6px;
 }
 
 .personal-info {
@@ -93,11 +99,23 @@ nav {
     width: 30%;
     min-width: 280px;
     height: auto;
-    padding-left: var(--padding-side-main);
-    padding-right: var(--padding-side-second);
     box-sizing: border-box;
     font-family: var(--font-main);
     box-sizing: border-box;
+}
+
+.personal-info-name {
+    padding-top: calc(var(--padding-side-second) + var(--padding-vertical));
+    margin-bottom: var(--padding-side-second);
+}
+
+.side-padding {
+    padding-left: var(--padding-side-main);
+    padding-right: var(--padding-side-second);
+}
+
+.personal-info-sections {
+    padding-bottom: var(--padding-vertical);
 }
 
 .experience-info {
@@ -146,12 +164,13 @@ nav {
 }
 
 .photo {
-    width: calc(100% + var(--padding-side-main) + var(--padding-side-second));
-    transform: translateX(calc(-1 * var(--padding-side-main)));
+    width: 100%;
     margin-bottom: 32px;
     filter: sepia(30%);
     transition: filter var(--animation);
+    z-index: 0;
 }
+
 .photo:hover {
     filter: sepia(0%);
 }
@@ -191,16 +210,15 @@ nav {
 
     .personal-info {
         width: 100%;
+    }
+
+    .side-padding {
         padding-right: var(--padding-side-main);
     }
 
     .experience-info {
         width: 100%;
         padding-left: var(--padding-side-main);
-    }
-
-    .photo {
-        width: calc(100% + calc(2 * var(--padding-side-main)));
     }
 
     .mobile-navigation {
